@@ -1,2 +1,2 @@
-public class Buildings {
+abstract class Buildings {
 }
