@@ -1,3 +1,5 @@
+package Construction;
+
 public class Apartments extends Buildings {
     private int NumberRooms;
     private String NumberOfApartment;
