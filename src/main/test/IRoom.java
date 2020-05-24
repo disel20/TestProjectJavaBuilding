@@ -8,5 +8,5 @@ public interface IRoom {
 
     void checkOutAll();
 
-    void findResident(String lastName);
+    void searchLastName(String lastName);
 }

@@ -30,16 +30,9 @@ public class Room implements IRoom {
         return new Room(number, buildCountOfResident);
     }
 
-    @Override
-    public void findResident(String lastName) {
-        for (int i = 0; i < residentList.size(); i++) {
-            String findName = residentList.get(i).getResidentInfo().getLastName();
-            String roomNumber = residentList.get(i).getRoom().getNumber();
-            if (findName.equals(lastName)) {
-                System.out.println(lastName + " found in room " + roomNumber);
-                System.out.println();
-            }
-        }
+
+    public void searchLastName(String findLastName) {
+
     }
 
     @Override

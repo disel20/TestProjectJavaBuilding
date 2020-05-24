@@ -6,16 +6,21 @@ import java.util.List;
 public class Hotel implements IHotel {
     private String name;
     private int countOfResident;
-    private List<Resident> residentList = new ArrayList<>();
-    private List<Room> roomList = new ArrayList<>();
+    private List<Resident> checkInList;
+    private static List<Room> roomList;
+
+    public Hotel(String name, int countOfResident) {
+        this.name = name;
+        this.countOfResident = countOfResident;
+    }
 
     @Override
     public boolean checkIn(Resident resident) {
         boolean isCheckIn = false;
-        if (residentList.size() < countOfResident) {
+        if (checkInList.size() < countOfResident) {
             isCheckIn = true;
-            residentList.add(resident);
-            Room.buildRoom().checkIn(resident);
+            checkInList.add(resident);
+            //Room.buildRoom().checkIn(resident);
         }
         System.out.println("CheckIn: " + isCheckIn + " " + resident);
         return isCheckIn;
@@ -47,12 +52,12 @@ public class Hotel implements IHotel {
         this.countOfResident = countOfResident;
     }
 
-    public List<Resident> getResidentList() {
-        return residentList;
+    public List<Resident> getCheckInList() {
+        return checkInList;
     }
 
-    public void setResidentList(List<Resident> residentList) {
-        this.residentList = residentList;
+    public void setCheckInList(List<Resident> checkInList) {
+        this.checkInList = checkInList;
     }
 
     @Override
@@ -60,7 +65,7 @@ public class Hotel implements IHotel {
         return "Hotel{" +
                 "name='" + name + '\'' +
                 ", countOfResident=" + countOfResident +
-                ", residentList=" + residentList +
+                ", checkInList=" + checkInList +
                 '}';
     }
 }

@@ -10,8 +10,11 @@ public class HotelApp {
 
     public static void main(String[] args) {
 
+        //I didn't understand yet how will help me hotel class, but I created it
+        Hotel californiya = new Hotel("Californiya", 20);
+
         List<Resident> residentList = new ArrayList<>();
-        for (int i = 0; i < 12; i++) {
+        for (int i = 0; i < 3; i++) {
             residentList.add(Resident.buildResident());
         }
         System.out.println("after build resident:");
@@ -19,11 +22,12 @@ public class HotelApp {
         System.out.println();
 
         List<Room> roomList = new ArrayList<>();
-        for (int i = 0; i < 8; i++) {
+        for (int i = 0; i < 5; i++) {
             roomList.add(Room.buildRoom());
             System.out.println(roomList.get(i));
         }
 
+        //here will do check in
         try {
             int r = 0;
             for (int j = 0; j < residentList.size(); j++) {
@@ -43,20 +47,31 @@ public class HotelApp {
             System.out.println("After check in: " + roomList.get(i));
         }
 
-        roomList.get(6).checkIn(residentList.get(11));
-        System.out.println(roomList.get(6));
+        //one resident decided to take more rooms
+        roomList.get(4).checkIn(residentList.get(2));
+        roomList.get(2).checkIn(residentList.get(2));
 
-        //here will be find in last names, BUT this method doesn't work with 1 resident has 2 rooms
+        //let's go search last names in our rooms
         System.out.println();
-        System.out.println("Search in last names:");
+        System.out.println("Search in last names...");
         Scanner in = new Scanner(System.in);
-        System.out.println("Input searching last name: ");
-        String lastName = in.nextLine();
+        System.out.println("Please enter a sought last name: ");
+        String findLastName = in.nextLine();
         in.close();
-        for (int i = 0; i < roomList.size(); i++) {
-            roomList.get(i).findResident(lastName);
+        boolean isFound = false;
+        for (int j = 0; j < roomList.size(); j++) {
+            for (int i = 0; i < roomList.get(j).getResidentList().size(); i++) {
+                String lastName = roomList.get(j).getResidentList().get(i).getResidentInfo().getLastName();
+                String roomNumber = roomList.get(j).getNumber();
+                if (lastName.equals(findLastName)) {
+                    System.out.println(findLastName + " found in room " + roomNumber);
+                    System.out.println();
+                    isFound = true;
+                }
+            }
         }
-
-
+        if (!isFound) {
+            System.out.println("Nothing found");
+        }
     }
 }
