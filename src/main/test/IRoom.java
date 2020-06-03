@@ -7,6 +7,4 @@ public interface IRoom {
     void checkOut(Resident resident);
 
     void checkOutAll();
-
-    void searchLastName(String lastName);
 }

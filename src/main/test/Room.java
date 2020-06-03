@@ -30,11 +30,6 @@ public class Room implements IRoom {
         return new Room(number, buildCountOfResident);
     }
 
-
-    public void searchLastName(String findLastName) {
-
-    }
-
     @Override
     public boolean checkIn(Resident resident) {
         boolean isCheckIn = false;

@@ -12,6 +12,7 @@
         <module>NewModule</module>
         <module>task1</module>
         <module>task2</module>
+        <module>task-0</module>
     </modules>
 
     <name>Buildings</name>
